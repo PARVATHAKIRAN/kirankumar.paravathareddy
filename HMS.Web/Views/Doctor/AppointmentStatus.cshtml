@@ -1,0 +1,38 @@
+﻿@model HMS.Web.Models.AppointmentVM
+
+@{
+	ViewData["Title"] = "Appointment";
+	Layout = "~/Views/Shared/_DoctorLayout.cshtml";
+}
+
+<div class="row">
+	<ol class="breadcrumb">
+		<li>
+			<a href="#">
+				<em class="fa fa-home"></em>
+			</a>
+		</li>
+		<li class="active">Doctor</li>
+		<li class="active">Appointment Status</li>
+	</ol>
+</div>
+<h2>Appointment</h2>
+<hr />
+<div class="row">
+	<form asp-action="AppointmentStatus">
+		<div class="col-md-12">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="Id" />
+			<div class="form-group col-md-6">
+				<label asp-for="Status" class="control-label"></label>
+				<select asp-for="Status" asp-items="@ViewBag.appointmentstatus" class="form-control"></select>
+				<span asp-validation-for="Status" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<input type="submit" value="Save" class="btn btn-success" />
+			</div>
+		</div>
+	</form>
+</div>

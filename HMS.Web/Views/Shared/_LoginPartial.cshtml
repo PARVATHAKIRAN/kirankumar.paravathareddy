@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form class="form-inline" asp-controller="Account" asp-action="Logout" asp-area="" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+        <button type="submit" class="list-group-item" style="margin: 0px -20px; font-size: 13px">Logout</button>
+    </form>
+}

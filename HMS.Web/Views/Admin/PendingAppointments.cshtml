@@ -1,0 +1,74 @@
+﻿@model IEnumerable<HMS.Web.Models.AppointmentVM>
+
+@{
+    ViewData["Title"] = "AppointmentList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Appointment</li>
+        <li class="active">Appointment List</li>
+    </ol>
+</div>
+<h2>Pending Appointment List</h2>
+<hr />
+<table id="table_id"  class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoctorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReasonForSeeingDoc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppointmentDate)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientName)
+                </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.ReasonForSeeingDoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrStatus)
+            </td>
+            <td>
+                 <a asp-action="ViewPatientDetails" asp-route-id="@item.Id" class="fa fa-eye" style="font-size: 19px"></a> |
+                <a asp-action="DeleteAppointment" asp-route-id="@item.Id" class="fa fa-trash" style="font-size: 19px; color: red"></a>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#table_id").dataTable();
+        });
+    </script>
+}

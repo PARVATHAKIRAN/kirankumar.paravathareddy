@@ -1,0 +1,40 @@
+﻿@model HMS.Web.Models.DoctorVM
+
+@{
+	ViewData["Title"] = "UpdateDoctor";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+	<ol class="breadcrumb">
+		<li>
+			<a href="#">
+				<em class="fa fa-home"></em>
+			</a>
+		</li>
+		<li class="active">Doctor</li>
+		<li class="active">Update Doctor</li>
+	</ol>
+</div>
+<h2>Update Doctor</h2>
+<hr />
+<div class="row">
+	<form asp-action="DoctorSetting">
+		<div class="col-md-12">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="Id" />			
+			<div class="form-group col-md-6">
+				<div class="checkbox">
+					<label>
+						<input asp-for="Status" /> @Html.DisplayNameFor(model => model.Status)
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<input type="submit" value="Save" class="btn btn-success" />
+			</div>
+		</div>
+	</form>
+</div>

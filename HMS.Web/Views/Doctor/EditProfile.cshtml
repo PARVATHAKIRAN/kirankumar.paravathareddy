@@ -1,0 +1,118 @@
+﻿
+@model HMS.Web.Models.DoctorVM
+
+@{
+	ViewData["Title"] = "Doctor";
+	Layout = "~/Views/Shared/_DoctorLayout.cshtml";
+}
+
+<div class="row">
+	<ol class="breadcrumb">
+		<li>
+			<a href="#">
+				<em class="fa fa-home"></em>
+			</a>
+		</li>
+		<li class="active">Doctor</li>
+		<li class="active">Edit Doctor</li>
+	</ol>
+</div>
+<h2>Edit Doctor</h2>
+<hr />
+<div class="row">
+	<form asp-action="EditProfile" enctype="multipart/form-data">
+		<div class="col-md-12">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="Id" />
+			<input type="hidden" asp-for="ExistingImage" />
+			<div class="form-group col-md-6">
+				<label asp-for="FirstName" class="control-label"></label>
+				<input asp-for="FirstName" class="form-control" />
+				<span asp-validation-for="FirstName" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-6">
+				<label asp-for="LastName" class="control-label"></label>
+				<input asp-for="LastName" class="form-control" />
+				<span asp-validation-for="LastName" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-6">
+				<label asp-for="ContactNo" class="control-label"></label>
+				<input asp-for="ContactNo" class="form-control" />
+				<span asp-validation-for="ContactNo" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-6">
+				<label asp-for="Education" class="control-label"></label>
+				<input asp-for="Education" class="form-control" />
+				<span asp-validation-for="Education" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-6">
+				<label asp-for="Designation" class="control-label"></label>
+				<input asp-for="Designation" class="form-control" />
+				<span asp-validation-for="Designation" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-6">
+				<label asp-for="Specialization" class="control-label"></label>
+				<input asp-for="Specialization" class="form-control" />
+				<span asp-validation-for="Specialization" class="text-danger"></span>
+			</div>			
+			<div class="form-group col-md-6">
+				<label asp-for="Address" class="control-label"></label>
+				<input asp-for="Address" class="form-control" />
+				<span asp-validation-for="Address" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-6">
+				<label asp-for="DateOfBirth" class="control-label"></label>
+				<input asp-for="DateOfBirth" class="form-control" />
+				<span asp-validation-for="DateOfBirth" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-6">
+				<label asp-for="ProfilePhoto" class="control-label"></label>
+				<input asp-for="ProfilePhoto" accept="image/*" />
+				<span asp-validation-for="ProfilePhoto" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<label asp-for="ProfilePhoto" class="control-label"></label>
+				<div class="custom-file">
+					<input asp-for="ProfilePhoto" accept="image/*" />
+					<label class="custom-file-label" for="customFile">Choose file</label>
+				</div>
+				<span asp-validation-for="ProfilePhoto" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-6">
+				<img src="~/DoctorImages/@Model.ExistingImage" class="img-thumbnail" height="80" width="80" asp-append-version="true" />
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<label asp-for="BloodGroup" class="control-label"></label>
+				<select asp-for="BloodGroup" asp-items="@ViewBag.bloodlist" class="form-control"></select>
+				<span asp-validation-for="BloodGroup" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-6">
+				<label asp-for="Gender" class="control-label"></label>
+				<select asp-for="Gender" asp-items=@ViewBag.genderlist class="form-control"></select>
+				<span asp-validation-for="Gender" class="text-danger"></span>
+			</div>
+		</div>
+		@*<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<label asp-for="ApplicationUser.Password" class="control-label"></label>
+				<input asp-for="ApplicationUser.Password" asp-items="model.statuslist" class="form-control" />
+				<span asp-validation-for="ApplicationUser.Password" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-6">
+				<label asp-for="ApplicationUser.ConfirmPassword" class="control-label"></label>
+				<input asp-for="ApplicationUser.ConfirmPassword" class="form-control" />
+				<span asp-validation-for="ApplicationUser.ConfirmPassword" class="text-danger"></span>
+			</div>
+		</div>*@
+		
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<input type="submit" value="Save" class="btn btn-success" />
+			</div>
+		</div>
+	</form>
+</div>

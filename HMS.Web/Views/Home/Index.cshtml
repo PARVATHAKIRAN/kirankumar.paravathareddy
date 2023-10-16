@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<header id="Home">
+    <nav>
+        <div class="row">
+            <img src="~/Content/Layout/resources/img/logo-white.jpg" alt="HMS logo" class="logo">
+            <img src="~/Content/Layout/resources/img/logo.jpg" alt="HMS logo" class="logo-black">
+            <ul class="main-nav js-main-nav">
+                <li><a href="#Home">Home</a></li>   
+                <li><a asp-controller="Account" asp-action="Register">Register</a></li>
+                <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+                <li><a asp-controller="Account" asp-action="ForgotPassword">ForgotPassword</a></li>
+            </ul>
+            <a class="mobile-nav-icon js-mobile-nav-icon"><i class="ion-ios-menu"></i></a>
+        </div>
+    </nav>
+    <div class="hero-text-box">
+        <h1>Hospital Management<br> System.</h1>
+        <br>
+        <a class="btn btn-ghost js-scroll-to-start" href="#">Show me more</a>
+    </div>
+</header>
+
+<footer>    
+    <div class="row">
+        <p> Copyright &copy; @DateTime.Now.Year by HMS. All rights reserved.</p>
+    </div>
+</footer>

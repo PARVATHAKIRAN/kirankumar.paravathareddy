@@ -1,0 +1,88 @@
+﻿@model IEnumerable<HMS.Web.Models.PatientVM>
+
+@{
+	ViewData["Title"] = "Patient List";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+	<ol class="breadcrumb">
+		<li>
+			<a href="#">
+				<em class="fa fa-home"></em>
+			</a>
+		</li>
+		<li class="active">Patient</li>
+		<li class="active">Patient List</li>
+	</ol>
+</div>
+
+
+<h2>Patient List</h2>
+<hr />
+<table id="table_id" class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.FullName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Email)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.ContactNo)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.BloodGroup)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Gender)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Address)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.StrStatus)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.FullName)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Email)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.ContactNo)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.BloodGroup)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Gender)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Address)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.StrStatus)
+				</td>
+				<td>
+					<a asp-action="EditPatient" asp-route-id="@item.Id" class="fa fa-pencil-square-o" style="font-size: 19px"></a> |
+					<a asp-action="DeletePatient" asp-route-id="@item.Id" class="fa fa-trash" style="font-size: 19px; color: red"></a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+@section scripts {
+	<script>
+		$(document).ready(function () {
+			$("#table_id").dataTable();
+		});
+	</script>
+}

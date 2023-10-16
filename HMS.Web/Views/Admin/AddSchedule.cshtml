@@ -1,0 +1,84 @@
+﻿@model HMS.Web.Models.ScheduleVM
+
+@{
+    ViewBag.Title = "AddSchedule";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Schedule</li>
+        <li class="active">Add Schedule</li>
+    </ol>
+</div>
+
+<h2>Add Schedule</h2>
+<hr />
+
+
+<div class="row">
+    <form asp-action="AddSchedule">
+        <div class="col-md-12">
+            <div class="form-group col-md-6">
+                <label asp-for="DoctorId" class="control-label"></label>
+                <select asp-for="DoctorId" asp-items="@ViewBag.DoctorList" class="form-control"></select>
+                <span asp-validation-for="DoctorId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group col-md-6">
+                <label asp-for="AvailableStartDay" class="control-label"></label>
+                <select asp-for="AvailableStartDay" asp-items="@ViewBag.AvailableDays" class="form-control"></select>
+                <span asp-validation-for="AvailableStartDay" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="AvailableEndDay" class="control-label"></label>
+                <select asp-for="AvailableEndDay" asp-items="@ViewBag.AvailableDays" class="form-control"></select>
+                <span asp-validation-for="AvailableEndDay" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group col-md-6">
+                <label asp-for="AvailableStartTime" class="control-label"></label>
+                <input asp-for="AvailableStartTime" class="form-control" />
+                <span asp-validation-for="AvailableStartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="AvailableEndTime" class="control-label"></label>
+                <input asp-for="AvailableEndTime" class="form-control" />
+                <span asp-validation-for="AvailableEndTime" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group col-md-6">
+                <label asp-for="TimePerPatient" class="control-label"></label>
+                <select asp-for="TimePerPatient" asp-items="@ViewBag.TimePerPatientList" class="form-control"></select>
+                <span asp-validation-for="TimePerPatient" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group col-md-6">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Status" /> @Html.DisplayNameFor(model => model.Status)
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group col-md-6">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+    </form>
+</div>

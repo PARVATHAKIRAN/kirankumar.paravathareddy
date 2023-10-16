@@ -1,0 +1,115 @@
+﻿@model HMS.Web.Models.AppointmentVM
+
+@{
+    ViewData["Title"] = "ScheduleAppointment";
+    Layout = "~/Views/Shared/_PatientLayout.cshtml";
+}
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Appointment</li>
+        <li class="active">Edit Appointment</li>
+    </ol>
+</div>
+
+<h2>Edit Appointment</h2>
+
+<div class="row">
+	<form asp-action="EditAppointment">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<input type="hidden" asp-for="Id" />
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<label asp-for="DoctorId" class="control-label"></label>
+				<select asp-for="DoctorId" class="form-control" asp-items="@ViewBag.DoctorList"></select>
+			</div>
+			<div class="form-group col-md-6">
+				<label asp-for="AppointmentDate" class="control-label"></label>
+				<input asp-for="AppointmentDate" class="form-control" />
+				<span asp-validation-for="AppointmentDate" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<label asp-for="ReasonForSeeingDoc" class="control-label"></label>
+				<input asp-for="ReasonForSeeingDoc" class="form-control" />
+				<span asp-validation-for="ReasonForSeeingDoc" class="text-danger"></span>
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<label asp-for="Drugallergies" class="control-label"></label>
+				<input asp-for="Drugallergies" class="form-control" />
+				<span asp-validation-for="Drugallergies" class="text-danger"></span>
+			</div>
+
+			<div class="form-group col-md-6">
+				<label asp-for="Otherillnesses" class="control-label"></label>
+				<input asp-for="Otherillnesses" class="form-control" />
+				<span asp-validation-for="Otherillnesses" class="text-danger"></span>
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<label asp-for="AnyOperations" class="control-label"></label>
+				<input asp-for="AnyOperations" class="form-control" />
+				<span asp-validation-for="AnyOperations" class="text-danger"></span>
+			</div>
+
+			<div class="form-group col-md-6">
+				<label asp-for="CurrentMedications" class="control-label"></label>
+				<input asp-for="CurrentMedications" class="form-control" />
+				<span asp-validation-for="CurrentMedications" class="text-danger"></span>
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<label asp-for="Exercise" class="control-label"></label>
+				<input asp-for="Exercise" class="form-control" />
+				<span asp-validation-for="Exercise" class="text-danger"></span>
+			</div>
+
+			<div class="form-group col-md-6">
+				<label asp-for="Diet" class="control-label"></label>
+				<input asp-for="Diet" class="form-control" />
+				<span asp-validation-for="Diet" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<label asp-for="AConsumption" class="control-label"></label>
+				<input asp-for="AConsumption" class="form-control" />
+				<span asp-validation-for="AConsumption" class="text-danger"></span>
+			</div>
+			<div class="form-group col-md-6">
+				<label asp-for="CConsumption" class="control-label"></label>
+				<input asp-for="CConsumption" class="form-control" />
+				<span asp-validation-for="CConsumption" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<label asp-for="MedicalHistoryComment" class="control-label"></label>
+				<input asp-for="MedicalHistoryComment" class="form-control" />
+				<span asp-validation-for="MedicalHistoryComment" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group col-md-6">
+				<input type="submit" value="Update Appointment" class="btn btn-success" />
+			</div>
+		</div>
+
+
+	</form>
+</div>
+
+

@@ -1,0 +1,18 @@
+/*
+Home Layout
+Admin
+
+--Doctor Add,Edit,Delete,List
+--Patient Edit,Delete,List
+Doctor
+--Edit profile,
+Patient
+--Edit Profile
+
+Pending Points
+ Edit Profile for Admin,Doc,Pat
+ Change Password for all
+*/
+Image upload issue at edit---IFormFile Done
+
+logger Done 

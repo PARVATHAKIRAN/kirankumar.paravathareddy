@@ -1,0 +1,85 @@
+﻿@model HMS.Web.Models.ScheduleVM
+
+@{
+    ViewBag.Title = "DoctorSchedule";
+    Layout = "~/Views/Shared/_PatientLayout.cshtml";
+}
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Doctor</li>
+        <li class="active">Doctor Schedule</li>
+    </ol>
+</div>
+
+<h2>Doctor Schedule</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Doctors Name
+        </dt>
+
+        <dd>
+            @ViewBag.FullName
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvailableStartDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvailableStartDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvailableEndDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvailableEndDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvailableStartTime)
+        </dt>
+
+        <dd>
+            @Model.AvailableStartTime.ToShortTimeString()
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvailableEndTime)
+        </dt>
+
+        <dd>
+            @Model.AvailableEndTime.ToShortTimeString()
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimePerPatient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimePerPatient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StrStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a asp-action="AvailableDoctorsList" class="btn btn-primary">Back to List</a>
+</p>
